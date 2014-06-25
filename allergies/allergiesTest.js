@@ -16,8 +16,9 @@ var Allergies = function(input) {
 
   this.addtype = function(input){
     if (input>255){
-      input -= 255
+      input = Math.floor(input/2) - 1
     }
+    console.log(input)
 
     var allgRemain = input;
     var allergies = types[input];
@@ -28,6 +29,7 @@ var Allergies = function(input) {
     } else {
       typeArr.forEach(function(item){
         if(item <= allgRemain){
+          console.log(allgRemain)
           allgRemain = allgRemain - item;
           that.allergens.unshift(types[item]);
         }
