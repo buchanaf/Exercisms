@@ -42,26 +42,26 @@ describe("strain", function() {
     expect(strain.discard([], function(e) { return e < 10})).toEqual([]);
   });
 
-  xit("discards nothing", function() {
+  it("discards nothing", function() {
     expect(strain.discard([1, 2, 3], function(e) { return e > 10 })).toEqual([1, 2, 3]);
   });
 
-  xit("discards first and last", function() {
+  it("discards first and last", function() {
     expect(strain.discard([1, 2, 3], function(e) { return e % 2 === 1 })).toEqual([2]);
   });
 
-  xit("discards neither first nor last", function() {
+  it("discards neither first nor last", function() {
     var result = strain.discard([1, 2, 3, 4, 5], function(e) { return e % 2 === 0 });
     expect(result).toEqual([1, 3, 5]);
   });
 
-  xit("discards strings", function() {
+  it("discards strings", function() {
     var words = "apple zebra banana zombies cherimoya zelot".split(" ");
     var result = strain.discard(words, function(word) { return word.indexOf("z") === 0 });
     expect(result).toEqual("apple banana cherimoya".split(" "));
   });
 
-  xit("discards arrays", function() {
+  it("discards arrays", function() {
     var rows = [
       [1, 2, 3],
       [5, 5, 5],
