@@ -3,20 +3,32 @@ var atbash = function(){
 }
 
 atbash.encode = function(stringToConvert){
-  stringToConvert = stringToConvert.replace(/ /g,"");
+  stringToConvert = stringToConvert.replace(/( |,)/g,"");
   stringSplit = stringToConvert.toLowerCase().split('');
 
-
   resultsArray = [];
-  stringSplit.map(function(item){
-    var unicodeType = item.charCodeAt(0)
-    var oppositeUnicode = 219 - unicodeType;
-    var oppositeAlpha = String.fromCharCode(oppositeUnicode)
-    resultsArray.push(oppositeAlpha)
-  })
+  stringSplit.forEach(function(item, index){
+    if(parseInt(item)){
+      index = index+1;
+      resultsArray.push(item)
 
-  convertedString = resultsArray.join("")
+    } else {
+      index = index+1;
+      var unicodeType = item.charCodeAt(0)
+      if (unicodeType !== 46){
+        var oppositeUnicode = 219 - unicodeType;
+        var oppositeAlpha = String.fromCharCode(oppositeUnicode)
+        resultsArray.push(oppositeAlpha)
+      }
+    }
 
-  return resultsArray.join("");
+    if(index % 5 == 0 && index !== stringSplit.length-1){
+      resultsArray.push(" ")
+    }
 
+  });
+
+  var stringConverted = resultsArray.join("").trim();
+
+  return stringConverted
 }
