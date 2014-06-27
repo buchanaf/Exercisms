@@ -1,30 +1,30 @@
 // var Crypto = require('./crypto-square');
 
 describe("Crypto",function() {
-  // it("normalize strange characters",function() {
-  //   var crypto = new Crypto('s#$%^&plunk');
-  //   expect(crypto.normalizePlaintext()).toEqual("splunk");
-  // });
+  it("normalize strange characters",function() {
+    var crypto = new Crypto('s#$%^&plunk');
+    expect(crypto.normalizePlaintext()).toEqual("splunk");
+  });
 
-  // it("normalize numbers",function() {
-  //   var crypto = new Crypto('1, 2, 3 GO!');
-  //   expect(crypto.normalizePlaintext()).toEqual("123go");
-  // });
+  it("normalize numbers",function() {
+    var crypto = new Crypto('1, 2, 3 GO!');
+    expect(crypto.normalizePlaintext()).toEqual("123go");
+  });
 
-  // it("size of small square",function() {
-  //   var crypto = new Crypto('1234');
-  //   expect(crypto.size()).toEqual(2);
-  // });
+  it("size of small square",function() {
+    var crypto = new Crypto('1234');
+    expect(crypto.size()).toEqual(2);
+  });
 
-  // it("size of slightly larger square",function() {
-  //   var crypto = new Crypto('123456789');
-  //   expect(crypto.size()).toEqual(3);
-  // });
+  it("size of slightly larger square",function() {
+    var crypto = new Crypto('123456789');
+    expect(crypto.size()).toEqual(3);
+  });
 
-  // it("size of non-perfect square",function() {
-  //   var crypto = new Crypto('123456789abc');
-  //   expect(crypto.size()).toEqual(4);
-  // });
+  it("size of non-perfect square",function() {
+    var crypto = new Crypto('123456789abc');
+    expect(crypto.size()).toEqual(4);
+  });
 
   it("plain text segments",function() {
     var crypto = new Crypto('Never vex thine heart with idle woes');
@@ -48,7 +48,7 @@ describe("Crypto",function() {
 
   it("normalized cipher text",function() {
     var crypto = new Crypto('Madness, and then illumination.');
-    expect(crypto.normalizeCiphertext()).toEqual('msemo aanin dninn dlaet ltshu i');
+    expect(crypto.normalizeCiphertext()).toEqual('msemoa anindn inndla etltsh ui');
   });
 
   it("more normalized cipher text",function() {

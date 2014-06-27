@@ -10,13 +10,22 @@ var Crypto = function(string){
     return Math.ceil(Math.sqrt(this.string.length));
   }
 
-  this.plaintextSegments = function(){
+  this.plaintextSegments = function(normal){
     var columnWidth = this.size(this.string)
+    console.log(columnWidth)
     var resultsArry = [];
 
-    for (var i = 0; i<this.string.length;i++){
+    if (normal){
+      var stringToArray = normal;
+    } else {
+      var stringToArray = this.string;
+    }
+
+
+
+    for (var i = 0; i<stringToArray.length;i++){
       if(i % columnWidth === 0 | i === 0){
-        resultsArry.push(this.string.slice(i, i + columnWidth));
+        resultsArry.push(stringToArray.slice(i, i + columnWidth));
       }
     }
 
@@ -24,6 +33,25 @@ var Crypto = function(string){
   }
 
   this.ciphertext = function(){
-    return 's'
+    var cipherColum = this.plaintextSegments();
+    var normalArray = [];
+    var counter = 0;
+
+    while(counter <= cipherColum.length){
+      cipherColum.forEach(function(item){
+        normalArray.push(item.slice(counter, counter + 1))
+      })
+      counter++
+    }
+    return normalArray.join('');;
   }
+
+  this.normalizeCiphertext = function(){
+    var normalizeText = this.ciphertext();
+
+    var normalCipher = this.plaintextSegments(normalizeText).join(' ');
+    console.log(normalizeText);
+    return normalCipher;
+  }
+
 }
