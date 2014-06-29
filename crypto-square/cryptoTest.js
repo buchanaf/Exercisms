@@ -21,8 +21,6 @@ var Crypto = function(string){
       var stringToArray = this.string;
     }
 
-
-
     for (var i = 0; i<stringToArray.length;i++){
       if(i % columnWidth === 0 | i === 0){
         resultsArry.push(stringToArray.slice(i, i + columnWidth));
