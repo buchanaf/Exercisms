@@ -21,17 +21,17 @@ describe("Secret Handshake", function() {
     expect(handshake.commands()).toEqual(["jump"]);
   });
 
-  xit("11 is wink and double blink", function() {
+  it("11 is wink and double blink", function() {
     var handshake = new SecretHandshake(3);
     expect(handshake.commands()).toEqual(["wink","double blink"]);
   });
 
-  xit("10011 is double blink and wink", function() {
+  it("10011 is double blink and wink", function() {
     var handshake = new SecretHandshake(19);
     expect(handshake.commands()).toEqual(["double blink","wink"]);
   });
 
-  xit("11111 is jump, close your eyes, double blink, and wink", function() {
+  it("11111 is jump, close your eyes, double blink, and wink", function() {
     var handshake = new SecretHandshake(31);
     expect(handshake.commands()).toEqual(["jump","close your eyes","double blink","wink"]);
   });
