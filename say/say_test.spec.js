@@ -1,4 +1,4 @@
-var say = require('./say');
+// var say = require('./say');
 
 describe('say', function () {
 
@@ -26,9 +26,9 @@ describe('say', function () {
     expect(say.inEnglish(100)).toBe('one hundred');
   });
 
-  xit('one hundred twenty-three', function () {
-    expect(say.inEnglish(123)).toBe('one hundred twenty-three');
-  });
+  // it('one hundred twenty-three', function () {
+  //   expect(say.inEnglish(123)).toBe('one hundred twenty-three');
+  // });
 
   xit('one thousand', function () {
     expect(say.inEnglish(1000)).toBe('one thousand');
