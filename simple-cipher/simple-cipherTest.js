@@ -14,11 +14,32 @@ var Cipher = function(startString) {
     throw new Error('Bad key')
   }
 
+  this.key = startString
 
-
-  this.key = startString || 'placeholder';
+  if(this.key){
+    this.charCodes = this.key.split('').map(function(item){
+      return item.charCodeAt(0) - 97
+    });
+  }
 
   this.encode = function(stringToEncode) {
+    var stringToEncode = stringToEncode.split('')
+    var that = this
+    var arrayToEncode = []
+    var recode = []
+
+    stringToEncode.forEach(function(item, index){
+      arrayToEncode.push(item.charCodeAt(0) + that.charCodes[index] + 97)
+    })
+
+    arrayToEncode.forEach(function(item,index){
+      if(item){
+        console.log(item.fromCharCode(0))
+        recode.push(item.fromCharCode(0))
+      }
+    })
+
+    console.log(recode)
     this.key = stringToEncode;
     return this.key
   }

@@ -35,15 +35,13 @@ var Triplet = function(one, two, three){
 
 }
 
-
-
 Triplet.where = function(minMax){
   var minMax = minMax
   var results = [];
 
   for (var i = minMax.minFactor || 1; i <= minMax.maxFactor; i++){
-    for (var j = minMax.minFactor || 1; j <= minMax.maxFactor; j++){
-      for (var k = minMax.minFactor || 1; k <= minMax.maxFactor; k++){
+    for (var j = i || 1; j <= minMax.maxFactor; j++){
+      for (var k = j || 1; k <= minMax.maxFactor; k++){
         if(new Triplet(i,j,k).isPythagorean()){
           if(minMax.sum){
             if((i + j + k) === minMax.sum){
@@ -59,6 +57,7 @@ Triplet.where = function(minMax){
 
   var counterObject = {};
   var finalResults = []
+
   results.forEach(function(item, index){
     console.log(item.product())
     if (counterObject.hasOwnProperty(item.product())){

@@ -40,16 +40,12 @@ say.inEnglish = function(num){
     var resultsArr = [];
 
     for(var i = Math.ceil(splitNum.length/3); i >= splitNum.length/3; i--){
-
       var temp = [];
       for(var j = 0; j<3; j++){
-
         if(splitNum[j + i - 1] || splitNum[j + i - 1] === 0){
-
           temp.push(splitNum[j])
         }
       }
-
 
     resultsArr.push(temp)
     }
